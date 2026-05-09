@@ -4,15 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "776e28d457cbea997a5feb655df2c1b3",
+    "content-hash": "1ba78f4572fcf39763c3e9c053fe5ef4",
     "packages": [
         {
             "name": "adambean/randflake-id-php",
             "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Adambean/randflake-id-php.git",
+                "reference": "24396482819e738b5fc00a60a94bd8ba8340059b"
+            },
             "dist": {
-                "type": "path",
-                "url": "../lib",
-                "reference": "1be04aa94c55825cbc0d6bd91a3f7e02a8ef1baf"
+                "type": "zip",
+                "url": "https://api.github.com/repos/Adambean/randflake-id-php/zipball/24396482819e738b5fc00a60a94bd8ba8340059b",
+                "reference": "24396482819e738b5fc00a60a94bd8ba8340059b",
+                "shasum": ""
             },
             "require": {
                 "paragonie/constant_time_encoding": "^3.1",
@@ -25,28 +31,14 @@
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "phpunit/phpunit": "^9.6"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Adambean\\RandflakeId\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Adambean\\RandflakeId\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ],
-                "cs:fix": [
-                    "php-cs-fixer fix"
-                ],
-                "stan": [
-                    "phpstan analyse"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -56,9 +48,11 @@
                 "randflake-id",
                 "sparx64"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "issues": "https://github.com/Adambean/randflake-id-php/issues",
+                "source": "https://github.com/Adambean/randflake-id-php/tree/main"
+            },
+            "time": "2026-05-09T16:54:05+00:00"
         },
         {
             "name": "doctrine/collections",
