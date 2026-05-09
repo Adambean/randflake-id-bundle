@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lib:
+    name: lib (PHP 8.1)
+    runs-on: debian-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer
+
+      - name: Install dependencies
+        working-directory: lib
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Run tests
+        working-directory: lib
+        run: composer test
+
+      - name: Run PHPStan
+        working-directory: lib
+        run: composer stan
