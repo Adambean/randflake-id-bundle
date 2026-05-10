@@ -53,13 +53,13 @@ You can generate a secret using the `randflakeid:secret:generate` console comman
 
 **Optional, boolean (default: true):** Whether IDs should be encrypted within your application. Encrypted IDs are unpredictable thus do not leak the creation time, node ID, and ID sequence to end users.
 
-You should never change this setting after your application has begun to generate IDs, though can optionally override this on a per-column basis using the `encrypt` option.
+You should never change this setting after your application has begun to generate IDs, though can optionally use the explicit column types to deviate from the configuration.
 
 #### RANDFLAKE_ID_ENCODED
 
 **Optional, boolean (default: true):** Whether IDs should be encoded within your application. Encoded IDs will be shortened from an integer up to 20 digits down to a string up to 13 characters.
 
-You should never change this setting after your application has begun to generate IDs, though can optionally override this on a per-column basis using the `encode` option.
+You should never change this setting after your application has begun to generate IDs, though can optionally use the explicit column types to deviate from the configuration.
 
 #### RANDFLAKE_ID_LEASE_START and RANDFLAKE_ID_LEASE_END
 
