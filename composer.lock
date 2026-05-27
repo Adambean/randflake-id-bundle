@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ba78f4572fcf39763c3e9c053fe5ef4",
+    "content-hash": "06edebf8db131aa4fe668619724b93a5",
     "packages": [
         {
             "name": "adambean/randflake-id-php",
-            "version": "dev-main",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Adambean/randflake-id-php.git",
-                "reference": "4d92aa85b3959db24c3855febfcfcf94502d20ef"
+                "reference": "c1011f1165cff5bd1fbe2587d183dbf2aef15fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Adambean/randflake-id-php/zipball/4d92aa85b3959db24c3855febfcfcf94502d20ef",
-                "reference": "4d92aa85b3959db24c3855febfcfcf94502d20ef",
+                "url": "https://api.github.com/repos/Adambean/randflake-id-php/zipball/c1011f1165cff5bd1fbe2587d183dbf2aef15fa4",
+                "reference": "c1011f1165cff5bd1fbe2587d183dbf2aef15fa4",
                 "shasum": ""
             },
             "require": {
@@ -30,7 +30,6 @@
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "phpunit/phpunit": "^9.6"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -49,9 +48,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Adambean/randflake-id-php/issues",
-                "source": "https://github.com/Adambean/randflake-id-php/tree/main"
+                "source": "https://github.com/Adambean/randflake-id-php/tree/1.0.0"
             },
-            "time": "2026-05-27T19:29:50+00:00"
+            "time": "2026-05-27T19:33:04+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -7148,9 +7147,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "adambean/randflake-id-php": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
