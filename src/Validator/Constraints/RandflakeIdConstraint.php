@@ -67,6 +67,8 @@ final class RandflakeIdConstraint extends Constraint
 
     /**
      * {@inheritDoc}
+     *
+     * @return literal-string
      */
     public function getDefaultOption()
     {
