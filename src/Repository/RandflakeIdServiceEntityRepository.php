@@ -105,4 +105,23 @@ abstract class RandflakeIdServiceEntityRepository extends ServiceEntityRepositor
 
         return $this;
     }
+
+    /**
+     * @throws \UnexpectedValueException If Doctrine returns an unexpected value type.
+     *
+     * @return T|null
+     */
+    final protected function normalizeEntityResult(mixed $result): ?object
+    {
+        if (null === $result || is_object($result)) {
+            /** @var T|null $result */
+            return $result;
+        }
+
+        throw new \UnexpectedValueException(sprintf(
+            "Expected query result to be %s|null, got %s.",
+            $this->getClassMetadata()->getName(),
+            get_debug_type($result)
+        ));
+    }
 }
