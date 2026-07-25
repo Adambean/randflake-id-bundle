@@ -38,20 +38,19 @@ final class InspectCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $idInput = $input->getArgument("id");
-
-        if (!is_string($idInput) || "" === ($idInput = strtolower(trim($idInput)))) {
+        $idArgument = $input->getArgument("id");
+        if (!is_string($idArgument) || "" === ($idArgument = strtolower(trim($idArgument)))) {
             $output->writeln("ID must be a non-empty string.");
             return Command::INVALID;
         }
 
         $idIsEncoded = null;
         try {
-            if (ctype_digit($idInput)) {
-                RandflakeIdService::assertNumericStringId($idInput);
+            if (ctype_digit($idArgument)) {
+                RandflakeIdService::assertNumericStringId($idArgument);
                 $idIsEncoded = false;
             } else {
-                RandflakeIdService::assertBase32HexStringId($idInput);
+                RandflakeIdService::assertBase32HexStringId($idArgument);
                 $idIsEncoded = true;
             }
         } catch (\InvalidArgumentException $e) {
@@ -62,7 +61,7 @@ final class InspectCommand extends Command
             return Command::FAILURE;
         }
 
-        $id = $idIsEncoded ? $this->service->decodeId($idInput) : $idInput;
+        $id = $idIsEncoded ? $this->service->decodeId($idArgument) : $idArgument;
         if (!ctype_digit($id)) {
             $output->writeln("ID must be a numeric string.");
             return Command::INVALID;
@@ -88,7 +87,7 @@ final class InspectCommand extends Command
         }
 
         if ($idIsEncoded) {
-            $output->writeln(sprintf("ID encoded: %s", $idInput));
+            $output->writeln(sprintf("ID encoded: %s", $idArgument));
         }
         $output->writeln(sprintf("ID: %s", $id));
         $output->writeln(sprintf("Timestamp: %s", $details["timestamp"]));

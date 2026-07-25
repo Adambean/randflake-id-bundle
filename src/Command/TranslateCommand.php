@@ -37,15 +37,14 @@ final class TranslateCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $idInput = $input->getArgument("id");
-
-        if (!is_string($idInput) || "" === ($idInput = strtolower(trim($idInput)))) {
+        $idArgument = $input->getArgument("id");
+        if (!is_string($idArgument) || "" === ($idArgument = strtolower(trim($idArgument)))) {
             $output->writeln("ID must be a non-empty string.");
             return Command::INVALID;
         }
 
         try {
-            RandflakeIdService::assertValidId($idInput);
+            RandflakeIdService::assertValidId($idArgument);
         } catch (\InvalidArgumentException $e) {
             $output->writeln($e->getMessage());
             return Command::INVALID;
@@ -62,7 +61,7 @@ final class TranslateCommand extends Command
             return Command::INVALID;
         }
 
-        $id = $idInput;
+        $id = $idArgument;
         try {
             if (true === $directionFromApplication) {
                 if ($this->service->isEncoded()) {
@@ -70,14 +69,26 @@ final class TranslateCommand extends Command
                 }
 
                 if ($this->service->isEncrypted()) {
+                    if (!ctype_digit($id)) {
+                        throw new \RuntimeException("ID is not a numeric string.");
+                    }
+
                     $id = $this->service->decryptId($id);
                 }
             } elseif (true === $directionFromStorage) {
                 if ($this->service->isEncrypted()) {
+                    if (!ctype_digit($id)) {
+                        throw new \RuntimeException("ID is not a numeric string.");
+                    }
+
                     $id = $this->service->encryptId($id);
                 }
 
                 if ($this->service->isEncoded()) {
+                    if (!ctype_digit($id)) {
+                        throw new \RuntimeException("ID is not a numeric string.");
+                    }
+
                     $id = $this->service->encodeId($id);
                 }
             } else {
