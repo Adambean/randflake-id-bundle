@@ -6,7 +6,7 @@ This bundle implements my [Randflake ID library package](https://github.com/adam
 
 While not required, you should familiarise yourself with the library package documentation before using this bundle, as it is beneficial to understand the configuration and usage of this bundle.
 
-**⚠️ This library is currently a work in progress, and should not be used in a production environment until it has undergone peer review.**
+**ℹ️ This library is currently in the review phase. You may use this in production, but be aware that it is under active development.**
 
 ## Requirements
 
@@ -388,6 +388,9 @@ final class ExampleRepository extends RandflakeIdServiceEntityRepository
 ## Development & contributing
 
 Ensure any contribution is compatible with the earliest supported PHP and Symfony versions.
+
+Use of the companion test application is strongly recommended for development and testing purposes: [Randflake ID Symfony bundle test app](https://github.com/adambean/randflake-id-bundle-test-app)
+Because the nature of this library and bundle is entirely data orientated, traditional unit tests alone will not provide quality assurance. The companion test app allows this bundle to be tested in a simple but somewhat real world Symfony application, and allows for testing of the Doctrine integration, console commands, and service usage.
 
 Clean up code style to the accepted standards:
 
